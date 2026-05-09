@@ -41,11 +41,8 @@ local function append_detail(lines, detail, filetype)
     return lines
   end
 
-  local detail_lines = vim.split(
-    ("```%s\n%s\n```"):format(base_filetype(filetype), vim.trim(detail)),
-    "\n",
-    { plain = true }
-  )
+  local detail_lines =
+    vim.split(("```%s\n%s\n```"):format(base_filetype(filetype), vim.trim(detail)), "\n", { plain = true })
 
   if #lines > 0 then
     table.insert(detail_lines, "")

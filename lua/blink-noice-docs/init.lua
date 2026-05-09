@@ -90,8 +90,7 @@ function M.patch_show_item()
     sources
       .resolve(context, item)
       :map(function(resolved)
-        local valid_documentation = type(resolved.documentation) == "table"
-          or type(resolved.documentation) == "string"
+        local valid_documentation = type(resolved.documentation) == "table" or type(resolved.documentation) == "string"
         local valid_detail = type(resolved.detail) == "string"
 
         if not valid_documentation and not valid_detail then
@@ -110,8 +109,7 @@ function M.patch_show_item()
               config = config,
             }, draw_opts or {}))
           end
-          local draw = type(resolved.documentation) == "table" and resolved.documentation.draw
-            or config.draw
+          local draw = type(resolved.documentation) == "table" and resolved.documentation.draw or config.draw
 
           vim.api.nvim_set_option_value("modifiable", true, { buf = docs_buf })
           draw({
